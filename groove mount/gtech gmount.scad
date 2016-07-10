@@ -7,7 +7,8 @@
 //preset here, add more number for options
 //0 default to Geeetech
 //1 vanilla based
-preset=0;
+//2 Prusa i3 Rework
+preset=2;
 
 //fastener type to accommodate servo for auto bed leveling
 //true servo mount type
@@ -21,18 +22,24 @@ servo=true;
 //3 greg's wade (based on reloaded version)
 mount=1;
 
+mount_distance_presets = [15, 12, 12];
+mount_size_presets = [4, 3, 4];
+mount_nut_presets = [6, 50, 6];
+lock_size_presets = [4, 3, 4]; //e3d lock screw sizes
+fastener_size_presets = [4, 3, 4];
+
 //copy and add more presets, don't change numbers before ';'
 {
-mount_distance= preset==1 ? 12:15;
-mount_size= preset==1 ? 3:4;
-mount_nut= preset==1 ? 50:6;
-lock_size= preset==1 ? 3:4; //e3d lock screw size
-fastener_size= preset==1 ? 3:4;
+mount_distance = mount_distance_presets[preset];
+mount_size = mount_size_presets[preset];
+mount_nut = mount_nut_presets[preset];
+lock_size = lock_size_presets[preset]; //e3d lock screw size
+fastener_size = fastener_size_presets[preset];
 }
 
 //these are the items, comment/uncomment to your desire
-translate ([0,80,0])top();
-//rotate([180,0,0])bottom();
+//translate ([0,80,0])top();
+rotate([180,0,0])bottom();
 //translate ([0,-40,0])fastener();
 //translate ([0,-100,0])e3lock();
 
